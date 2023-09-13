@@ -18,7 +18,7 @@ variable "env_id" {
     default = "ea0b63b3-0da5-4d56-88d1-15056ec2bb55"
 }
 resource "anypoint_env" "env" {
-  org_id = var.ORG_ID   # environment related business group
+  org_id = var.org_id   # environment related business group
   name = "TERRA"                  # environment name
   type = "sandbox"              # environment type : sandbox/production
 }
