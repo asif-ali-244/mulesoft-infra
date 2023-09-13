@@ -9,7 +9,7 @@ terraform {
 provider "anypoint" {
 }
 
-variable "ORG_ID" {
+variable "org_id" {
     type = string
 }
 
