@@ -13,6 +13,7 @@ jobs:
       TF_BACKEND_HTTP_ENCRYPTION_PROVIDER: ${{ secrets.TF_BACKEND_HTTP_ENCRYPTION_PROVIDER }}
       ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
       ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+      TF_BACKEND_HTTP_SOPS_SHAMIR_THRESHOLD: 2
       # TF_VAR_org_id: ${{ secrets.ORG_ID }}
 
     steps:
@@ -31,7 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-        run: terraform-backend-git git terraform init  -reconfigure -upgrade -input=false
+        run: terraform-backend-git git terraform init -input=false
 
       - name: plan
         env:
