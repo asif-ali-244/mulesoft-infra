@@ -20,11 +20,11 @@ variable "env_id" {
 }
 resource "anypoint_env" "env" {
   org_id = var.org_id # environment related business group
-  name   = "TERRA"    # environment name
+  name   = "TERRAF"    # environment name
   type   = "sandbox"  # environment type : sandbox/production
 }
 resource "anypoint_connected_app" "my_conn_app_its_own_behalf" {
-  name        = "itsownbehalf"
+  name        = "itsownbehalfd"
   grant_types = ["client_credentials"]
   audience    = "internal"
 
