@@ -13,7 +13,7 @@ jobs:
       TF_BACKEND_HTTP_ENCRYPTION_PROVIDER: ${{ secrets.TF_BACKEND_HTTP_ENCRYPTION_PROVIDER }}
       ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
       ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
-      TF_VAR_org_id: ${{ secrets.ORG_ID }}
+      # TF_VAR_org_id: ${{ secrets.ORG_ID }}
 
     steps:
       - name: Checkout this repo

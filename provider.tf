@@ -11,6 +11,7 @@ provider "anypoint" {
 
 variable "org_id" {
     type = string
+    default = "fb623940-e3a3-4944-8c21-ab28e5676f82"
 }
 
 variable "env_id" {
