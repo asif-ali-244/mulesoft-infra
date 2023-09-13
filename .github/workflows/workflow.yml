@@ -31,7 +31,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-        run: terraform-backend-git git terraform init -upgrade -input=false
+        run: terraform-backend-git git terraform init  -reconfigure -upgrade -input=false
 
       - name: plan
         env:
