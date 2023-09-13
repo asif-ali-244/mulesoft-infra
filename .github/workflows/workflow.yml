@@ -1,0 +1,34 @@
+name: Infra Workflow
+
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      TF_BACKEND_HTTP_ENCRYPTION_PASSPHRASE: ${{ secrets.TF_BACKEND_HTTP_ENCRYPTION_PASSPHRASE }}
+      TF_BACKEND_HTTP_ENCRYPTION_PROVIDER: ${{ secrets.TF_BACKEND_HTTP_ENCRYPTION_PROVIDER }}
+      ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
+      ANYPOINT_CLIENT_SECRET: ${{ secrets.ANYPOINT_CLIENT_SECRET }}
+
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Setup terraform-backend-git
+        uses: plumber-cd/setup-terraform-backend-git@v1
+        with:
+          version:
+            0.1.2
+      - name: Use terraform-backend-git
+        run: terraform-backend-git version
+
+      - name: Init
+        run: terraform-backend-git git terraform init
+
+      - name: plan
+        run: terraform-backend-git git terraform plan
