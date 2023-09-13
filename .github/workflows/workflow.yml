@@ -41,11 +41,11 @@ jobs:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
         run: terraform-backend-git --access-logs git terraform plan -out=plan.out
 
-      - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+      # - name: Import GPG key
+      #   uses: crazy-max/ghaction-import-gpg@v6
+      #   with:
+      #     gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      #     passphrase: ${{ secrets.PASSPHRASE }}
 
       - name: apply
         env:
