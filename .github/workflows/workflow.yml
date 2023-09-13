@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       TF_BACKEND_HTTP_ENCRYPTION_PASSPHRASE: ${{ secrets.TF_BACKEND_HTTP_ENCRYPTION_PASSPHRASE }}
       TF_BACKEND_HTTP_ENCRYPTION_PROVIDER: ${{ secrets.TF_BACKEND_HTTP_ENCRYPTION_PROVIDER }}
       ANYPOINT_CLIENT_ID: ${{ secrets.ANYPOINT_CLIENT_ID }}
@@ -28,7 +27,11 @@ jobs:
         run: terraform-backend-git version
 
       - name: Init
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: terraform-backend-git git terraform init
 
       - name: plan
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: terraform-backend-git git terraform plan
