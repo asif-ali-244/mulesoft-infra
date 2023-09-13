@@ -35,4 +35,6 @@ jobs:
       - name: plan
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: terraform-backend-git --access-logs git terraform --detailed-exitcode plan
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          TF_LOG: ERROR
+        run: terraform-backend-git --access-logs git terraform plan
