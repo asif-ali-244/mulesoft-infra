@@ -11,7 +11,7 @@ on:
       - 'main'
 
 jobs:
-  init:
+  plan:
     runs-on: ubuntu-latest
 
     env:
