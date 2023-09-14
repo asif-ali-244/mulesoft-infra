@@ -23,34 +23,34 @@ variable "env_id" {
 #   name   = "TERRAF"    # environment name
 #   type   = "sandbox"  # environment type : sandbox/production
 # }
-resource "anypoint_connected_app" "my_conn_app" {
-  name        = "itsownbehalfd"
-  grant_types = ["client_credentials"]
-  audience    = "internal"
+# resource "anypoint_connected_app" "my_conn_app" {
+#   name        = "itsownbehalfd"
+#   grant_types = ["client_credentials"]
+#   audience    = "internal"
 
-  scope {
-    scope = "profile"
-  }
+#   scope {
+#     scope = "profile"
+#   }
 
-  scope {
-    scope  = "aeh_admin"
-    org_id = var.org_id
-  }
+#   scope {
+#     scope  = "aeh_admin"
+#     org_id = var.org_id
+#   }
 
-  scope {
-    scope  = "read:audit_logs"
-    org_id = var.org_id
-  }
+#   scope {
+#     scope  = "read:audit_logs"
+#     org_id = var.org_id
+#   }
 
-  scope {
-    scope  = "view:environment"
-    org_id = var.org_id
-    env_id = var.env_id
-  }
+#   scope {
+#     scope  = "view:environment"
+#     org_id = var.org_id
+#     env_id = var.env_id
+#   }
 
-  scope {
-    scope  = "edit:environment"
-    org_id = var.org_id
-    env_id = var.env_id
-  }
-}
+#   scope {
+#     scope  = "edit:environment"
+#     org_id = var.org_id
+#     env_id = var.env_id
+#   }
+# }
