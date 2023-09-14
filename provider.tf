@@ -18,11 +18,11 @@ variable "env_id" {
   type    = string
   default = "ea0b63b3-0da5-4d56-88d1-15056ec2bb55"
 }
-resource "anypoint_env" "environment" {
-  org_id = var.org_id # environment related business group
-  name   = "TERRAF"    # environment name
-  type   = "sandbox"  # environment type : sandbox/production
-}
+# resource "anypoint_env" "environment" {
+#   org_id = var.org_id # environment related business group
+#   name   = "TERRAF"    # environment name
+#   type   = "sandbox"  # environment type : sandbox/production
+# }
 resource "anypoint_connected_app" "my_conn_app" {
   name        = "itsownbehalfd"
   grant_types = ["client_credentials"]
